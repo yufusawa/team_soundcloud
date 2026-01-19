@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e6e6e6 50%, #ff7b4d 100%);
+  /* Серый → светло-серый → оранжевый градиент */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Верхняя часть с заголовком и кнопками */
+.header {
+  padding: 40px 20px 30px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый подложка */
+  backdrop-filter: blur(4px); /* Лёгкое размытие (работает в современных браузерах) */
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 30px auto 0;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #ff6b35;
+  margin-bottom: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.mood-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.mood-btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 14px 10px;
+  font-size: 1.1rem;
+  background: #ff6b35;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 8px rgba(255, 107, 53, 0.3);
+}
+
+.mood-btn:hover {
+  background: #e55a2b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(255, 107, 53, 0.4);
+}
+
+/* Пустое пространство занимает всё остальное */
+.content-space {
+  flex: 1;
+}
+
+/* Адаптивность */
+@media (max-width: 500px) {
+  .header {
+    padding: 30px 16px 20px;
+  }
+  h1 {
+    font-size: 1.7rem;
+  }
+  .mood-btn {
+    min-width: 100px;
+    font-size: 1rem;
+    padding: 12px 8px;
+  }
+}

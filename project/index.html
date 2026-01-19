@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Sound Cloud</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Выбери настроение — послушай треки</h1>
+    <div class="mood-buttons">
+      <button class="mood-btn" data-mood="sad">🌧️ Грусть</button>
+      <button class="mood-btn" data-mood="happy">🎸 Веселье</button>
+      <button class="mood-btn" data-mood="calm">😐 Спокойное</button>
+      <button class="mood-btn" data-mood="energetic">🫨 Бодрое</button>
+    </div>
+  </header>
+
+  <!-- Пустое пространство -->
+  <main class="content-space"></main>
+
+  <script>
+    document.querySelectorAll('.mood-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mood = btn.getAttribute('data-mood');
+        alert(`Ты выбрал настроение: ${mood}`);
+      });
+    });
+  </script>
+</body>
+</html>
