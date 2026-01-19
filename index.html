@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Sound Cloud</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body id="body">
+  <header class="header">
+    <h1>Выбери настроение — послушай треки</h1>
+    <div class="mood-buttons">
+      <button class="mood-btn" data-mood="sad">🌧️ Грусть</button>
+      <button class="mood-btn" data-mood="happy">🎸 Веселье</button>
+      <button class="mood-btn" data-mood="calm">😐 Спокойное</button>
+      <button class="mood-btn" data-mood="energetic">🫨 Бодрое</button>
+    </div>
+  </header>
+
+  <!-- Плеер -->
+  <main class="player-container">
+    <div class="album-art">
+      <img src="https://via.placeholder.com/300/ffffff/333333?text=balencisoulja" alt="Обложка трека" />
+    </div>
+
+    <div class="track-info">
+      <h2>СТРОЮ ДОМ 🏠</h2>
+      <p>alreadytrash, Suanoo, @забыл_пароль</p>
+    </div>
+
+    <div class="progress-bar">
+      <span class="progress-fill" style="width: 40%;"></span>
+    </div>
+
+    <div class="player-controls">
+      <button class="control-btn prev">⏮️</button>
+      <button class="control-btn play-pause">⏸️</button>
+      <button class="control-btn next">⏭️</button>
+      <input type="range" class="volume-slider" min="0" max="100" value="75" />
+    </div>
+  </main>
+
+  <script>
+    const body = document.getElementById('body');
+    const moodButtons = document.querySelectorAll('.mood-btn');
+
+    // Фоны для каждого настроения
+    const backgrounds = {
+      sad: 'linear-gradient(135deg, #e0e6ed 0%, #a3b1c6 100%)',
+      happy: 'linear-gradient(135deg, #ffcc70 0%, #ff6b35 100%)',
+      calm: 'linear-gradient(135deg, #f5f2eb 0%, #dcd9d1 100%)',
+      energetic: 'linear-gradient(135deg, #ff6b35 0%, #ff3b30 100%)'
+    };
+
+    moodButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mood = btn.getAttribute('data-mood');
+        body.style.background = backgrounds[mood];
+        // Можно добавить текстуру шума (опционально)
+        body.style.backgroundImage = 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' opacity=\'0.05\'/%3E%3C/svg%3E")';
+      });
+    });
+
+    // Кнопка плей/пауза
+    const playPauseBtn = document.querySelector('.play-pause');
+    let isPlaying = false;
+    playPauseBtn.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      playPauseBtn.textContent = isPlaying ? '⏸️' : '▶️';
+    });
+
+    // Прогресс-бар клик
+    const progressBar = document.querySelector('.progress-bar');
+    progressBar.addEventListener('click', (e) => {
+      const percent = Math.round((e.offsetX / progressBar.offsetWidth) * 100);
+      document.querySelector('.progress-fill').style.width = `${percent}%`;
+    });
+  </script>
+   <footer class="footer">
+    <button class="footer-btn" id="about-btn">О проекте</button>
+    <button class="footer-btn" id="contact-btn">Связь</button>
+  </footer>
+
+  <!-- Модальные окна (опционально) -->
+  <div class="modal" id="about-modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>О проекте</h2>
+      <p>Этот сайт создан командой <strong>Team Sound Cloud</strong> как статический музыкальный лендинг. Мы экспериментируем со звуком, настроением и дизайном.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="contact-modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Связаться с нами</h2>
+      <p>Пиши нам в Telegram: <a href="https://t.me/your_username">@your_username</a><br>
+         Или на почту: <a href="mailto:team.soundcloud@example.com">team.soundcloud@example.com</a></p>
+    </div>
+  </div>
+</body>
+</html>
