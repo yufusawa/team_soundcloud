@@ -17,15 +17,51 @@
     </div>
   </header>
 
-  <!-- Пустое пространство -->
-  <main class="content-space"></main>
+  <!-- Центральный плеер -->
+  <main class="player-container">
+    <div class="album-art">
+      <img src="https://via.placeholder.com/300/ffffff/333333?text=balencisoulja" alt="Обложка трека" />
+    </div>
+
+    <div class="track-info">
+      <h2>Название трека</h2>
+      <p>Исполнитель</p>
+    </div>
+
+    <div class="progress-bar">
+      <span class="progress-fill" style="width: 40%;"></span>
+    </div>
+
+    <div class="player-controls">
+      <button class="control-btn prev">⏮️</button>
+      <button class="control-btn play-pause">⏸️</button>
+      <button class="control-btn next">⏭️</button>
+      <input type="range" class="volume-slider" min="0" max="100" value="75" />
+    </div>
+  </main>
 
   <script>
+    // Простая логика для кнопок
     document.querySelectorAll('.mood-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const mood = btn.getAttribute('data-mood');
         alert(`Ты выбрал настроение: ${mood}`);
       });
+    });
+
+    // Кнопка плей/пауза меняет иконку
+    const playPauseBtn = document.querySelector('.play-pause');
+    let isPlaying = false;
+    playPauseBtn.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      playPauseBtn.textContent = isPlaying ? '⏸️' : '▶️';
+    });
+
+    // Пример изменения прогресса (можно связать с реальным аудио позже)
+    const progressBar = document.querySelector('.progress-bar');
+    progressBar.addEventListener('click', (e) => {
+      const percent = Math.round((e.offsetX / progressBar.offsetWidth) * 100);
+      document.querySelector('.progress-fill').style.width = `${percent}%`;
     });
   </script>
 </body>

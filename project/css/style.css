@@ -7,18 +7,18 @@
 body {
   font-family: 'Segoe UI', system-ui, sans-serif;
   background: linear-gradient(135deg, #f0f0f0 0%, #e6e6e6 50%, #ff7b4d 100%);
-  /* Серый → светло-серый → оранжевый градиент */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  color: #333;
 }
 
-/* Верхняя часть с заголовком и кнопками */
+/* Верхняя часть */
 .header {
   padding: 40px 20px 30px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый подложка */
-  backdrop-filter: blur(4px); /* Лёгкое размытие (работает в современных браузерах) */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
@@ -64,9 +64,114 @@ h1 {
   box-shadow: 0 5px 12px rgba(255, 107, 53, 0.4);
 }
 
-/* Пустое пространство занимает всё остальное */
-.content-space {
+/* Плеер */
+.player-container {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.album-art {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.album-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.track-info h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.track-info p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+  margin: 15px 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #ff6b35;
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.2s;
+}
+
+.control-btn:hover {
+  transform: scale(1.2);
+}
+
+.volume-slider {
+  width: 100px;
+  height: 4px;
+  appearance: none;
+  background: #ddd;
+  border-radius: 2px;
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff6b35;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 0 6px rgba(255, 107, 53, 0.5);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff6b35;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 0 6px rgba(255, 107, 53, 0.5);
 }
 
 /* Адаптивность */
@@ -81,5 +186,12 @@ h1 {
     min-width: 100px;
     font-size: 1rem;
     padding: 12px 8px;
+  }
+  .album-art {
+    width: 250px;
+    height: 250px;
+  }
+  .player-controls {
+    gap: 12px;
   }
 }
