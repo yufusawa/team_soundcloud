@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>О проекте — Team Sound Cloud</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f4f6f8; /* Светло-серый фон */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .card {
+      max-width: 650px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      color: #ff6b35;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 32px;
+      background: #ff6b35;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    }
+
+    .back-link:hover {
+      background: #e55a2b;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 28px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .back-link {
+        padding: 10px 24px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>О проекте</h1>
+
+    <p>
+      Это интерактивный музыкальный лендинг, созданный командой <strong>Team Sound Cloud</strong>.
+    </p>
+
+    <p>
+      Мы сделали его, чтобы показать, как можно объединить простой дизайн, эмоции и звук в одном месте — без сложных функций, без регистрации, только настроение.
+    </p>
+
+    <p>
+      Выбирайте настроение, слушайте треки и наслаждайтесь моментом. Этот сайт — наш взгляд на то, как может выглядеть цифровое уютное пространство для музыки.
+    </p>
+
+    <a href="index.html" class="back-link">← Вернуться к плееру</a>
+  </div>
+</body>
+</html>
