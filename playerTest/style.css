@@ -106,3 +106,85 @@ button:active {
     font-size: 1.4em;
   }
 }
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 8px 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+.volume-icon {
+  font-size: 1.2em;
+  width: 24px;
+  text-align: center;
+}
+
+#volume-slider {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  outline: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+#volume-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: none;
+  cursor: pointer;
+}
+
+.volume-label {
+  min-width: 45px;
+  text-align: right;
+  font-weight: bold;
+  color: var(--light);
+}
+
+/* Volume icon animation for mute state */
+.volume-icon.muted {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .volume-control {
+    flex-direction: column;
+    gap: 8px;
+    margin: 15px auto;
+    padding: 10px;
+  }
+  
+  .volume-icon, .volume-label {
+    width: 100%;
+    text-align: center;
+  }
+}
