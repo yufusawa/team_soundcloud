@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Music Player</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Howler.js CDN (no download needed) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+</head>
+<body>
+  <div class="player-container">
+    <h1>🎵 Team Project Player</h1>
+    
+    <div class="now-playing">
+      <div id="song-title">Select a song to play</div>
+      <div class="progress-bar">
+        <div id="progress" class="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="prev">⏮</button>
+      <button id="play">▶️</button>
+      <button id="next">⏭</button>
+    </div>
+
+    <div class="playlist">
+      <h2>Our Setlist</h2>
+      <ul id="playlist">
+        <!-- Songs will be added here by JavaScript -->
+      </ul>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
